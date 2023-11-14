@@ -33,11 +33,12 @@ namespace WindowsFormsApp1
         {
             Dictionary<string, int> dic = new Dictionary<string, int>();
             dic.Add(i.ToString(), i);
-
+            int s = 0;
             foreach (KeyValuePair<string, int> d in dic)
             {
-                chart2.Series["DATOS"].Points.AddXY(d.Key, d.Value);
+                chart2.Series["DATOS"].Points.AddXY(s, d.Value);
                 chart2.Refresh();
+                s++;
                 
             }
         }
@@ -45,12 +46,13 @@ namespace WindowsFormsApp1
         {
             Dictionary<string, int> dic = new Dictionary<string, int>();
             dic.Add(c.ToString(), c);
-
+            int s = 0;
             foreach (KeyValuePair<string, int> d in dic)
             {
-                chart1.Series["DATOS"].Points.AddXY(d.Key, d.Value);
+                chart1.Series["DATOS"].Points.AddXY(s, d.Value);
                 chart1.Refresh();
-                Thread.Sleep(20);
+                s++;
+                Thread.Sleep(8);
             }
         }
 
@@ -66,7 +68,7 @@ namespace WindowsFormsApp1
                 int[] b;
                 for (int i = 0; i < array.Length; i++)
                 {
-                    array[i] = random.Next(0, Convert.ToInt32(txtLimite.Text));
+                    array[i] = random.Next(0, 1000);
                 }
                 for (int i = 0; i < array.Length; i++)
                 {
